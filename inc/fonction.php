@@ -44,7 +44,7 @@ function getObjets($filtre = '') {
     return $objets;
 }
 
-// Récupérer les détails d'un objet
+// Récupérer les détails d'un obje
 function getObjetDetails($id_objet) {
     $conn = dbconnect();
     $id_objet = intval($id_objet);
