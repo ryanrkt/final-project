@@ -7,3 +7,16 @@ _selectionner l'objets qui est rediriger vers un autres pages
 _caracteristique.php :image principale + autres images
 avec l’historique des emprunts:
 
+fiche membre 
+liste des emprunts 
+ajouter une fonction 
+
+getEmpruntsByMembre($id_membre) 
+
+liste de leurs objets
+fonction getObjetEmprunt($id_objet) 
+
+y a un bouton qui retourne les objetct , 
+
+etat de l objet 9 ok ou abimee
+page 1 ; nombre total OK et abimee
