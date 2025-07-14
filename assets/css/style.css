@@ -1,0 +1,137 @@
+/* ==== GLOBAL ==== */
+body {
+  background-color: #f4f6f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50; /* bleu-vert foncé */
+}
+
+/* ==== CARTE (formulaires & objets) ==== */
+.card {
+  border: none;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.01);
+}
+
+/* ==== TITRES ==== */
+h2, h3 {
+  color: #276749; /* vert foncé légèrement bleuté */
+  font-weight: bold;
+}
+
+/* ==== BOUTONS ==== */
+.btn-primary {
+  background-color: #2f855a; /* vert forêt */
+  border-color: #276749;
+}
+
+.btn-primary:hover {
+  background-color: #22543d; /* vert sombre */
+  border-color: #1c4532;
+}
+
+.btn-success {
+  background-color: #38a169; /* vert émeraude */
+  border-color: #2f855a;
+}
+
+.btn-success:hover {
+  background-color: #276749; /* vert foncé */
+  border-color: #1c4532;
+}
+
+/* ==== FORMULAIRES ==== */
+.form-label {
+  color: #4a5568; /* gris bleu foncé */
+  font-weight: 500;
+}
+
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #cbd5e0; /* gris clair */
+  transition: border-color 0.2s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #38a169; /* vert émeraude */
+  box-shadow: 0 0 6px rgba(56, 161, 105, 0.4);
+}
+
+/* ==== SELECT ==== */
+.form-select {
+  border-radius: 8px;
+}
+
+select.form-select:focus {
+  border-color: #2f855a; /* vert forêt */
+  box-shadow: 0 0 6px rgba(47, 133, 90, 0.4);
+}
+
+/* ==== LIENS ==== */
+a {
+  color: #2f855a;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #276749;
+}
+
+/* ==== BADGES ==== */
+.badge {
+  font-size: 0.9em;
+  padding: 0.5em 0.7em;
+  border-radius: 8px;
+}
+
+/* ==== ALERTES ==== */
+.alert {
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* ==== CARTES D'OBJETS ==== */
+.custom-card {
+  border: 1px solid #38a169; /* vert émeraude */
+  border-radius: 14px;
+  background-color: #ffffff;
+  box-shadow: 0 6px 12px rgba(56, 161, 105, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.custom-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(56, 161, 105, 0.3);
+}
+
+.custom-card .card-title {
+  color: #2f855a; /* vert forêt */
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.custom-card .card-text {
+  font-size: 0.95rem;
+  color: #2c3e50;
+}
+
+.badge.bg-success {
+  background-color: #276749 !important; /* vert foncé */
+}
+
+.badge.bg-danger {
+  background-color: #e53e3e !important; /* rouge un peu plus doux */
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 576px) {
+  .card {
+    margin: 0 1rem;
+  }
+}
