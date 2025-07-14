@@ -1,8 +1,7 @@
-/* ==== GLOBAL ==== */
 body {
-  background-color: #f9fafb; /* gris très clair */
+  background-color: #f9fafb;
   font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #1e293b; /* bleu-gris foncé */
+  color: #1e293b;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -10,23 +9,23 @@ body {
   padding: 0;
 }
 
-/* ==== LIENS ==== */
+/* Links */
 a {
-  color: #2563eb; /* bleu vif */
+  color: #2563eb;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover,
 a:focus {
-  color: #1e40af; /* bleu foncé */
+  color: #1e40af;
   text-decoration: underline;
   outline: none;
 }
 
-/* ==== TITRES ==== */
+/* Headings */
 h1, h2, h3 {
-  color: #0f172a; /* très foncé */
+  color: #0f172a;
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.2;
@@ -40,7 +39,7 @@ h3 {
   font-size: 1.5rem;
 }
 
-/* ==== CARTES ==== */
+/* Cards */
 .card, .custom-card {
   background-color: #fff;
   border-radius: 16px;
@@ -60,11 +59,11 @@ h3 {
 }
 
 .custom-card {
-  border: 2px solid #3b82f6; /* bleu clair */
+  border: 2px solid #3b82f6;
 }
 
 .custom-card .card-title {
-  color: #1e40af; /* bleu foncé */
+  color: #1e40af;
   font-weight: 700;
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
@@ -72,20 +71,20 @@ h3 {
 
 .custom-card .card-text {
   font-size: 1rem;
-  color: #334155; /* gris bleuté */
+  color: #334155;
 }
 
-/* ==== FORMULAIRES ==== */
+/* Forms */
 .form-label {
   font-weight: 600;
-  color: #475569; /* gris moyen */
+  color: #475569;
   margin-bottom: 0.3rem;
   display: block;
 }
 
 .form-control, .form-select {
   border-radius: 12px;
-  border: 1.5px solid #cbd5e1; /* gris clair */
+  border: 1.5px solid #cbd5e1;
   padding: 0.5rem 0.75rem;
   font-size: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -94,14 +93,14 @@ h3 {
 }
 
 .form-control:focus, .form-select:focus {
-  border-color: #3b82f6; /* bleu clair */
+  border-color: #3b82f6;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
   outline: none;
 }
 
-/* ==== BOUTONS ==== */
+/* Buttons */
 .btn-primary {
-  background-color: #3b82f6; /* bleu clair */
+  background-color: #3b82f6;
   border: none;
   border-radius: 12px;
   padding: 0.6rem 1.2rem;
@@ -112,13 +111,13 @@ h3 {
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: #2563eb; /* bleu foncé */
+  background-color: #2563eb;
   outline: none;
   box-shadow: 0 0 8px rgba(37, 99, 235, 0.6);
 }
 
 .btn-success {
-  background-color: #10b981; /* vert émeraude */
+  background-color: #10b981;
   border: none;
   border-radius: 12px;
   padding: 0.6rem 1.2rem;
@@ -129,12 +128,12 @@ h3 {
 
 .btn-success:hover,
 .btn-success:focus {
-  background-color: #059669; /* vert foncé */
+  background-color: #059669;
   outline: none;
   box-shadow: 0 0 8px rgba(5, 150, 105, 0.6);
 }
 
-/* ==== BADGES ==== */
+/* Badges */
 .badge {
   font-size: 0.85rem;
   font-weight: 600;
@@ -146,16 +145,16 @@ h3 {
 }
 
 .badge.bg-success {
-  background-color: #10b981 !important; /* vert émeraude */
+  background-color: #10b981 !important;
   color: #f0fdf4;
 }
 
 .badge.bg-danger {
-  background-color: #ef4444 !important; /* rouge vif */
+  background-color: #ef4444 !important;
   color: #fef2f2;
 }
 
-/* ==== ALERTES ==== */
+/* Alerts */
 .alert {
   border-radius: 12px;
   font-weight: 600;
@@ -175,7 +174,7 @@ h3 {
   border: 1px solid #86efac;
 }
 
-/* ==== TABLEAUX ==== */
+/* Tables */
 .table {
   border-collapse: separate;
   border-spacing: 0 0.5rem;
@@ -189,7 +188,7 @@ h3 {
   font-weight: 700;
   border: none;
   padding: 0.75rem 1rem;
-  border-radius: 12px 12px 0 0;
+  border-radius: 12px 12px 0 0; /* Apply only to the top, so it fits the tbody */
 }
 
 .table tbody tr {
@@ -207,7 +206,7 @@ h3 {
   border: none;
 }
 
-/* ==== RESPONSIVE ==== */
+/* Responsive */
 @media (max-width: 768px) {
   .container {
     padding-left: 1rem;
