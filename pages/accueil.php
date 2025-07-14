@@ -30,8 +30,10 @@ if ($nom !== '' || $disponible) {
 
 <div class="container mt-4">
     <h2 class="mb-3">Liste des objets</h2>
-    
-    <!-- Bouton ajouter un objet -->
+    <div class="mb-3">
+        <a href="fiche_membre.php" class="btn btn-primary">Les membres</a>
+    </div>
+
     <div class="mb-4 text-end">
         <a href="ajouter_object.php" class="btn btn-success">Ajouter un objet</a>
     </div>
@@ -74,36 +76,36 @@ if ($nom !== '' || $disponible) {
         <?php else: ?>
             <?php foreach ($objets as $objet): ?>
                 <div class="col-md-4 mb-4">
-                    <div class="card h-100 custom-card">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= htmlspecialchars($objet['nom_objet']) ?></h5>
-                            <p class="card-text">
-                                <strong>Catégorie :</strong> <?= htmlspecialchars($objet['nom_categorie']) ?><br>
-                                <strong>Propriétaire :</strong> <?= htmlspecialchars($objet['proprietaire']) ?><br>
+                    <a href="caracteristique.php?id=<?= $objet['id_objet'] ?>" style="text-decoration:none; color:inherit;">
+                        <div class="card h-100 custom-card">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= htmlspecialchars($objet['nom_objet']) ?></h5>
+                                <p class="card-text">
+                                    <strong>Catégorie :</strong> <?= htmlspecialchars($objet['nom_categorie']) ?><br>
+                                    <strong>Propriétaire :</strong> <?= htmlspecialchars($objet['proprietaire']) ?><br>
 
-                                <?php if (!empty($objet['date_retour']) && $objet['date_retour'] >= date('Y-m-d')): ?>
-                                    <span class="badge bg-danger">Emprunté </span>
-                                <?php else: ?>
-                                    <span class="badge bg-success">Disponible</span>
+                                    <?php if (!empty($objet['date_retour']) && $objet['date_retour'] >= date('Y-m-d')): ?>
+                                        <span class="badge bg-danger">Emprunté</span><br>
+                                        <small>Disponible le : <?= htmlspecialchars($objet['date_retour']) ?></small>
+                                    <?php else: ?>
+                                        <span class="badge bg-success">Disponible</span>
+                                    <?php endif; ?>
+                                </p>
+
+                                <!-- Bouton emprunter seulement si dispo -->
+                                <?php if (empty($objet['date_retour']) || $objet['date_retour'] < date('Y-m-d')): ?>
+                                    <form action="../traitements/traitement_emprunt.php" method="POST" class="mt-3">
+                                        <input type="hidden" name="id_objet" value="<?= $objet['id_objet'] ?>">
+                                        <div class="mb-2">
+                                            <label for="date_retour_<?= $objet['id_objet'] ?>" class="form-label">Date de retour</label>
+                                            <input type="date" name="date_retour" id="date_retour_<?= $objet['id_objet'] ?>" class="form-control" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-sm w-100">Emprunter</button>
+                                    </form>
                                 <?php endif; ?>
-                            </p>
-
-                            <!-- Bouton emprunter seulement si dispo -->
-                            <?php if (empty($objet['date_retour']) || $objet['date_retour'] < date('Y-m-d')): ?>
-                                <form action="../traitements/traitement_emprunt.php" method="POST" class="mt-3">
-                                    <input type="hidden" name="id_objet" value="<?= $objet['id_objet'] ?>">
-                                    <div class="mb-2">
-                                        <label for="date_retour_<?= $objet['id_objet'] ?>" class="form-label">Date de retour</label>
-                                        <input type="date" name="date_retour" id="date_retour_<?= $objet['id_objet'] ?>" class="form-control" required>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary btn-sm w-100">Emprunter</button>
-                                </form>
-                            <?php else: ?>
-                                <div class="text-muted mt-2">Disponible le : <?= htmlspecialchars($objet['date_retour']) ?></div>
-                            <?php endif; ?>
-
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
