@@ -1,0 +1,9 @@
+Lorsqu’on clique sur un objet dans la liste, 
+afficher la fiche de l’objet
+ 
+_créer une fonction GetObjetDetails($id);
+_re verifier les cardes où se situent les objets 
+_selectionner l'objets qui est rediriger vers un autres pages
+_caracteristique.php :image principale + autres images
+avec l’historique des emprunts:
+
