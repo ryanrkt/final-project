@@ -100,4 +100,53 @@ function getHistoriqueEmprunts($id_objet) {
     }
     return $historique;
 }
+
+
+function getObjetsAvancee($filtreCategorie = '', $nom = '', $disponible = false) {
+  $conn = dbconnect();
+
+  $conditions = [];
+
+  if (!empty($filtreCategorie)) {
+      $filtreCategorie = intval($filtreCategorie);
+      $conditions[] = "o.id_categorie = $filtreCategorie";
+  }
+
+  if (!empty($nom)) {
+      $nom = mysqli_real_escape_string($conn, $nom);
+      $conditions[] = "o.nom_objet LIKE '%$nom%'";
+  }
+
+  if ($disponible) {
+      $conditions[] = "NOT EXISTS (
+          SELECT 1 FROM exam_emprunt e 
+          WHERE e.id_objet = o.id_objet 
+            AND e.date_retour >= CURDATE()
+      )";
+  }
+
+  $sql = "
+      SELECT o.id_objet, o.nom_objet, c.nom_categorie, m.nom AS proprietaire,
+        (SELECT MAX(date_retour) FROM exam_emprunt e WHERE e.id_objet = o.id_objet AND e.date_retour >= CURDATE()) AS date_retour
+      FROM exam_objet o
+      JOIN exam_categorie_objet c ON o.id_categorie = c.id_categorie
+      JOIN exam_membre m ON o.id_membre = m.id_membre
+  ";
+
+  if (!empty($conditions)) {
+      $sql .= " WHERE " . implode(" AND ", $conditions);
+  }
+
+  $sql .= " ORDER BY o.nom_objet";
+
+  $res = mysqli_query($conn, $sql);
+  $objets = [];
+  if ($res) {
+      while ($row = mysqli_fetch_assoc($res)) {
+          $objets[] = $row;
+      }
+  }
+  return $objets;
+}
+
 ?>
